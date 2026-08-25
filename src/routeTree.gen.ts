@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AthleteRouteImport } from './routes/athlete'
+import { Route as CoachRouteImport } from './routes/coach'
+import { Route as RolesRouteImport } from './routes/roles'
+import { Route as SponsorRouteImport } from './routes/sponsor'
+import { Route as LoginAthleteRouteImport } from './routes/login.athlete'
+import { Route as LoginCoachRouteImport } from './routes/login.coach'
+import { Route as LoginSponsorRouteImport } from './routes/login.sponsor'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AthleteRoute = AthleteRouteImport.update({
+  id: '/athlete',
+  path: '/athlete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoachRoute = CoachRouteImport.update({
+  id: '/coach',
+  path: '/coach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RolesRoute = RolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorRoute = SponsorRouteImport.update({
+  id: '/sponsor',
+  path: '/sponsor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginAthleteRoute = LoginAthleteRouteImport.update({
+  id: '/login/athlete',
+  path: '/login/athlete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginCoachRoute = LoginCoachRouteImport.update({
+  id: '/login/coach',
+  path: '/login/coach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginSponsorRoute = LoginSponsorRouteImport.update({
+  id: '/login/sponsor',
+  path: '/login/sponsor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/athlete': typeof AthleteRoute
+  '/coach': typeof CoachRoute
+  '/roles': typeof RolesRoute
+  '/sponsor': typeof SponsorRoute
+  '/login/athlete': typeof LoginAthleteRoute
+  '/login/coach': typeof LoginCoachRoute
+  '/login/sponsor': typeof LoginSponsorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/athlete': typeof AthleteRoute
+  '/coach': typeof CoachRoute
+  '/roles': typeof RolesRoute
+  '/sponsor': typeof SponsorRoute
+  '/login/athlete': typeof LoginAthleteRoute
+  '/login/coach': typeof LoginCoachRoute
+  '/login/sponsor': typeof LoginSponsorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/athlete': typeof AthleteRoute
+  '/coach': typeof CoachRoute
+  '/roles': typeof RolesRoute
+  '/sponsor': typeof SponsorRoute
+  '/login/athlete': typeof LoginAthleteRoute
+  '/login/coach': typeof LoginCoachRoute
+  '/login/sponsor': typeof LoginSponsorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/athlete'
+    | '/coach'
+    | '/roles'
+    | '/sponsor'
+    | '/login/athlete'
+    | '/login/coach'
+    | '/login/sponsor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/athlete'
+    | '/coach'
+    | '/roles'
+    | '/sponsor'
+    | '/login/athlete'
+    | '/login/coach'
+    | '/login/sponsor'
+  id:
+    | '__root__'
+    | '/'
+    | '/athlete'
+    | '/coach'
+    | '/roles'
+    | '/sponsor'
+    | '/login/athlete'
+    | '/login/coach'
+    | '/login/sponsor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AthleteRoute: typeof AthleteRoute
+  CoachRoute: typeof CoachRoute
+  RolesRoute: typeof RolesRoute
+  SponsorRoute: typeof SponsorRoute
+  LoginAthleteRoute: typeof LoginAthleteRoute
+  LoginCoachRoute: typeof LoginCoachRoute
+  LoginSponsorRoute: typeof LoginSponsorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/athlete': {
+      id: '/athlete'
+      path: '/athlete'
+      fullPath: '/athlete'
+      preLoaderRoute: typeof AthleteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coach': {
+      id: '/coach'
+      path: '/coach'
+      fullPath: '/coach'
+      preLoaderRoute: typeof CoachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roles': {
+      id: '/roles'
+      path: '/roles'
+      fullPath: '/roles'
+      preLoaderRoute: typeof RolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsor': {
+      id: '/sponsor'
+      path: '/sponsor'
+      fullPath: '/sponsor'
+      preLoaderRoute: typeof SponsorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/athlete': {
+      id: '/login/athlete'
+      path: '/login/athlete'
+      fullPath: '/login/athlete'
+      preLoaderRoute: typeof LoginAthleteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/coach': {
+      id: '/login/coach'
+      path: '/login/coach'
+      fullPath: '/login/coach'
+      preLoaderRoute: typeof LoginCoachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/sponsor': {
+      id: '/login/sponsor'
+      path: '/login/sponsor'
+      fullPath: '/login/sponsor'
+      preLoaderRoute: typeof LoginSponsorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AthleteRoute: AthleteRoute,
+  CoachRoute: CoachRoute,
+  RolesRoute: RolesRoute,
+  SponsorRoute: SponsorRoute,
+  LoginAthleteRoute: LoginAthleteRoute,
+  LoginCoachRoute: LoginCoachRoute,
+  LoginSponsorRoute: LoginSponsorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
