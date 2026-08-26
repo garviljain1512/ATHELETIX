@@ -34,6 +34,9 @@ export const Route = createFileRoute("/coach")({
 function CoachDashboard() {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState<string[]>([]);
+  const featuredAthlete = athletes[0];
+
+  if (!featuredAthlete) return null;
 
   const toggle = (o: string) =>
     setActive((p) => (p.includes(o) ? p.filter((x) => x !== o) : [...p, o]));
@@ -127,11 +130,11 @@ function CoachDashboard() {
         </div>
 
         <aside className="surface-card h-fit p-5">
-          <MatchScore score={athletes[0].match} />
+          <MatchScore score={featuredAthlete.match} />
           <div className="mt-6 border-t border-border pt-5">
-            <p className="text-sm font-semibold">{athletes[0].name}</p>
+            <p className="text-sm font-semibold">{featuredAthlete.name}</p>
             <p className="text-xs text-muted-foreground">
-              {athletes[0].sport} · {athletes[0].location}
+              {featuredAthlete.sport} · {featuredAthlete.location}
             </p>
             <Button className="mt-4 w-full" variant="hero">
               Connect

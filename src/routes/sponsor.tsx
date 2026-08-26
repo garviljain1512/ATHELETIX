@@ -45,6 +45,8 @@ function SponsorDashboard() {
     `${x.name} ${x.sport} ${x.location}`.toLowerCase().includes(query.trim().toLowerCase()),
   );
 
+  if (!a) return null;
+
   return (
     <DashboardShell
       role="Sponsor"
