@@ -29,6 +29,9 @@ export const Route = createFileRoute("/athlete")({
 
 function AthleteDashboard() {
   const a = athletes[0];
+
+  if (!a) return null;
+
   const pct = Math.round((a.funding.raised / a.funding.goal) * 100);
 
   return (
